@@ -4,14 +4,17 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
+//middleware
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
-app.use(bodyParser.json())
-app.use(cookieParser())
-app.use(cors())
+const authRoutes = require('./routes/auth')
 
+// routes
+app.use('/api', authRoutes)
+
+//db connection
 mongoose.connect( process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -23,6 +26,7 @@ mongoose.connect( process.env.DATABASE, {
 
 const port = process.env.PORT || 8000
 
+//server
 app.listen(port, () => {
     console.log(`App running at ${port}`)
 })

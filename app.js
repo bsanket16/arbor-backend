@@ -4,6 +4,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+
+app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(cors())
+
 mongoose.connect( process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

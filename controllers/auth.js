@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const { validationResult } = require('express-validator');
 
+//signup controller
 exports.signup = (req, res) => {
 
     const errors = validationResult(req)
@@ -25,6 +26,7 @@ exports.signup = (req, res) => {
     })
 }
 
+//logout controller
 exports.logout = (req, res) => {
     res.json({
         message: 'logout works!'

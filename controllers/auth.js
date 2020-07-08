@@ -1,7 +1,12 @@
-exports.logout = (req, res, next) => {
-    res.send('<h1>logout</h1>')
+exports.signup = (req, res, next) => {
+    console.log('REQ BODY', req.body)
+    res.json({
+        message: 'signup works!'
+    })
 }
 
-exports.signup = (req, res, next) => {
-    res.send('<h1>signup</h1>')
+exports.logout = (req, res, next) => {
+    res.json({
+        message: 'logout works!'
+    })
 }

@@ -4,12 +4,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
+const authRoutes = require('./routes/auth')
+
 //middleware
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 
-const authRoutes = require('./routes/auth')
+app.use(bodyParser.json())
 
 // routes
 app.use('/api', authRoutes)

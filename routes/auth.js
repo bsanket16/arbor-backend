@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const { check, validationResult } = require('express-validator');
-const { logout, signup } = require('../controllers/auth')
+const { check, validationResult } = require('express-validator')
+const { logout, signup, login } = require('../controllers/auth')
 
 router.post('/signup', [
     //validation
@@ -10,6 +10,12 @@ router.post('/signup', [
     check('password').isLength({ min : 5}, { max : 15}).withMessage('length invalid')
 
 ], signup)
+
+router.post('/login', [
+     //validation
+    check('email').normalizeEmail().isEmail(),
+    check('password').isLength({ min : 5}, { max : 15})
+], login)
 
 router.get('/logout', logout)
 

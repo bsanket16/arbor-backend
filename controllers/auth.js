@@ -21,9 +21,9 @@ exports.signup = (req, res) => {
             })
         }
         res.json({
+            id : user._id,
             username : user.username,
-            email : user.email,
-            id : user._id
+            email : user.email
         })
     })
 }

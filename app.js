@@ -9,7 +9,8 @@ const authRoutes = require('./routes/auth')
 //middleware
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-const cors = require('cors')
+const cors = require('cors');
+const { isSignedIn } = require("./controllers/auth");
 
 app.use(bodyParser.json())
 

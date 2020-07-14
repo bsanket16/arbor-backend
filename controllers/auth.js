@@ -75,13 +75,14 @@ exports.logout = (req, res) => {
     })
 }
 
-// protected routes
-exports.isSignIn = expressJwt({
+//protected routes
+exports.isSignedIn = expressJwt({   
     secret: process.env.SECRET,
-    userProperty: "auth"
-})
+    algorithms: ['HS256'],
+    userProperty: 'auth'
+})  
 
-//custom middleware
+// //custom middleware
 exports.isAuthenticated = (req, res, next) => {
     let checker = req.profile && req.auth && req.profile._id === req.auth._id
     if(!checker){

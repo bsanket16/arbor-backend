@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const app = express()
 
 const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user')
 
 //middleware
 const bodyParser = require('body-parser')
@@ -16,6 +17,7 @@ app.use(bodyParser.json())
 
 // routes
 app.use('/api', authRoutes)
+app.use('/api', userRoutes)
 
 //db connection
 mongoose.connect( process.env.DATABASE, {

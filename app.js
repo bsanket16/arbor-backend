@@ -4,9 +4,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
-const authRoutes = require('./routes/auth')
-const userRoutes = require('./routes/user')
-
 //middleware
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
@@ -16,8 +13,13 @@ const { isSignedIn } = require("./controllers/auth");
 app.use(bodyParser.json())
 
 // routes
+const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user')
+const categoryRoutes = require('./routes/category')
+
 app.use('/api', authRoutes)
 app.use('/api', userRoutes)
+app.use('/api', categoryRoutes)
 
 //db connection
 mongoose.connect( process.env.DATABASE, {

@@ -1,4 +1,5 @@
 const Category = require('../models/category')
+const { update } = require('../models/category')
 
 exports.getCategoryById = (req, res, next, id) => {
     Category.findById(id).exec((err, cate) => {
@@ -37,4 +38,18 @@ exports.getAllCategories = (req, res) => {
         }
         res.json(categories)
     })  
+}
+
+exports.updateCategory = (req, res) => {
+    const category = req.category
+    category.name = req.body.name
+
+    category.save((err, updatedCategory) => {
+        if (err){
+            return res.status(400).json({
+                error : 'Failed to update category'
+            })
+        }
+        res.json(updatedCategory)
+    })
 }

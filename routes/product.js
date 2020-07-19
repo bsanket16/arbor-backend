@@ -22,7 +22,7 @@ router.get('/product/photo/:productId', photo)
 router.delete('/product/:productId/:userId', isSignedIn, isAuthenticated, isAdmin, deleteProduct)
 
 //update
-router.update('/product/:productId/:userId', isSignedIn, isAuthenticated, isAdmin, updateProduct)
+router.put('/product/:productId/:userId', isSignedIn, isAuthenticated, isAdmin, updateProduct)
 
 //listings
 router.get('/products', getAllProducts)

@@ -5,9 +5,9 @@ const { logout, signup, login, isSignedIn } = require('../controllers/auth')
 
 router.post('/signup', [
     //validation
-    check('username').isLength({ min : 3}).withMessage('must be at least 3 characters long'),
-    check('email').normalizeEmail().isEmail().withMessage('required'),
-    check('password').isLength({ min : 5}, { max : 15}).withMessage('length invalid')
+    check('username').isLength({ min : 3}).withMessage('Username must be at least 3 characters'),
+    check('email').normalizeEmail().isEmail().withMessage('Email address required'),
+    check('password').isLength({ min : 5}, { max : 15}).withMessage('Password length invalid')
 
 ], signup)
 

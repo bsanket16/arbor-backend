@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors');
 const { isSignedIn } = require("./controllers/auth");
 
+app.use(cors())
 app.use(bodyParser.json())
 
 // routes
